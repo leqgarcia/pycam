@@ -107,7 +107,7 @@ class Bucket:
 
 	def _load(self, obj_str):
 		''' Private method to return an object out of a pickled string'''
-		obj = pickle.loads(STR)
+		obj = pickle.loads(obj_str)
 		return obj
 		
 	def exists(self, name):

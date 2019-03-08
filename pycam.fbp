@@ -48,7 +48,7 @@
             <property name="name">BaseMainWindow</property>
             <property name="pos"></property>
             <property name="size">1000,749</property>
-            <property name="style">wxDEFAULT_FRAME_STYLE</property>
+            <property name="style">wxDEFAULT_FRAME_STYLE|wxSTAY_ON_TOP</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">XaaS Automation © MMXIX</property>
             <property name="tooltip"></property>
@@ -1939,6 +1939,7 @@
                                                                                 <property name="window_extra_style"></property>
                                                                                 <property name="window_name"></property>
                                                                                 <property name="window_style"></property>
+                                                                                <event name="OnLeftUp">cmd_save</event>
                                                                             </object>
                                                                         </object>
                                                                         <object class="sizeritem" expanded="0">
@@ -1978,7 +1979,7 @@
                                                                                 <property name="gripper">0</property>
                                                                                 <property name="hidden">0</property>
                                                                                 <property name="id">wxID_ANY</property>
-                                                                                <property name="label">Undo</property>
+                                                                                <property name="label">Reload</property>
                                                                                 <property name="margins"></property>
                                                                                 <property name="markup">0</property>
                                                                                 <property name="max_size"></property>
@@ -2050,7 +2051,7 @@
                                                                                 <property name="gripper">0</property>
                                                                                 <property name="hidden">0</property>
                                                                                 <property name="id">wxID_ANY</property>
-                                                                                <property name="label">Set/unset col</property>
+                                                                                <property name="label">Close</property>
                                                                                 <property name="margins"></property>
                                                                                 <property name="markup">0</property>
                                                                                 <property name="max_size"></property>
@@ -2083,6 +2084,7 @@
                                                                                 <property name="window_extra_style"></property>
                                                                                 <property name="window_name"></property>
                                                                                 <property name="window_style"></property>
+                                                                                <event name="OnLeftUp">exit_script</event>
                                                                             </object>
                                                                         </object>
                                                                     </object>
@@ -2259,7 +2261,7 @@
                                                                         <property name="enabled">1</property>
                                                                         <property name="fg"></property>
                                                                         <property name="floatable">1</property>
-                                                                        <property name="font"></property>
+                                                                        <property name="font">Arial,90,90,12,74,0</property>
                                                                         <property name="gripper">0</property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
@@ -2384,7 +2386,7 @@
                                                                         <property name="enabled">1</property>
                                                                         <property name="fg"></property>
                                                                         <property name="floatable">1</property>
-                                                                        <property name="font"></property>
+                                                                        <property name="font">Arial,90,90,12,74,0</property>
                                                                         <property name="gripper">0</property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
@@ -2509,7 +2511,7 @@
                                                                         <property name="enabled">1</property>
                                                                         <property name="fg"></property>
                                                                         <property name="floatable">1</property>
-                                                                        <property name="font"></property>
+                                                                        <property name="font">Arial,90,90,12,74,0</property>
                                                                         <property name="gripper">0</property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
@@ -2634,7 +2636,7 @@
                                                                         <property name="enabled">1</property>
                                                                         <property name="fg"></property>
                                                                         <property name="floatable">1</property>
-                                                                        <property name="font"></property>
+                                                                        <property name="font">Arial,90,90,12,74,0</property>
                                                                         <property name="gripper">0</property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
@@ -2982,7 +2984,7 @@
                 <property name="id">wxID_ANY</property>
                 <property name="maximum_size"></property>
                 <property name="minimum_size"></property>
-                <property name="name">m_statusBar1</property>
+                <property name="name">sb_status</property>
                 <property name="permission">protected</property>
                 <property name="pos"></property>
                 <property name="size"></property>

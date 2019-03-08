@@ -1,5 +1,8 @@
 #!/bin/env python
 
+import genClasses
+from pprint import pprint as pp
+
 # import genClasses
 # import os
 # from genClasses import g
@@ -40,10 +43,12 @@
 #         return work_list
 
 
+class DiInterface(object):
+    def __init__(self, gen_job):
+        self.job = genClasses.Job
+        if True:
+            self.job = gen_job
 
-class DI_Script(object):
-    def __init__(self):
-        self.data = []
         self.get_rows = [
             ['drill', 'drill', '9BB4BF'],
             ['csm', 'solder_mask', '00A57C'],
@@ -88,5 +93,40 @@ class DI_Script(object):
             "8. Jobs with no targets or DI targets"
         ]
 
+    def get_di_layers(self):
 
+        matrix = self.job.matrix.info
 
+        gROWcontext = matrix['gROWcontext']
+        gROWlayer_type = matrix['gROWlayer_type']
+        gROWname = matrix['gROWname']
+
+        work_list = []
+        reqd_types = ['drill',
+                      'solder_mask',
+                      'mixed', 'power_ground', 'signal']
+
+        for i in range(len(gROWname)):
+            if gROWcontext[i] == 'board':
+                if gROWlayer_type[i] in reqd_types:
+                    color = self.job.colors['hex'][gROWlayer_type[i]]
+                    work_list.append(
+                        [gROWname[i],
+                         gROWlayer_type[i],
+                         color]
+                    )
+        return work_list
+
+    def read_di_trg_params(self):
+        data = self.job.bucket.get("app_6_1_data")
+
+        if type(data) is not dict:
+            print "Not A Dict"
+            return None
+
+        return data
+
+    def save_di_trg_params(self, di_params):
+
+        # pp(di_params)
+        self.job.bucket.put(di_params, "app_6_1_data", True)
